@@ -11,19 +11,19 @@
       active++;
     }
   }
+  let showAll;
 </script>
 
 <section>
-  <h1>
-    <slot name="title">Business Card Tutorial</slot>
-  </h1>
   <div class="cols">
     <div>
+      <h2><slot name="title">Business Card Tutorial</slot></h2>
       <slot name="target">Target</slot>
     </div>
     <div class="step-container">
       <div
         class="steps"
+        class:showAll
         class:active1={active == 1}
         class:active2={active == 2}
         class:active3={active == 3}
@@ -42,9 +42,28 @@
         </slot>
       </div>
       <div class="player">
-        <button disabled={active == 1} on:click={prevStep}>&lt; Back</button>
-        <button disabled={active == steps} on:click={nextStep}>Next &gt;</button
-        >
+        <button disabled={active == 1} on:click={prevStep}> &lt; Back </button>
+        <button disabled={active == steps} on:click={nextStep}>
+          Next &gt;
+        </button>
+        <button disabled={active == steps} on:click={() => (active = steps)}>
+          Last &gt&gt;
+        </button>
+        <button on:click={() => (showAll = !showAll)}>
+          {#if showAll}
+            One-at-a-time
+          {:else}
+            Show all
+          {/if}
+        </button>
+        {#if !showAll}
+          <div class="step-info">
+            Step <div class="step-number">
+              {active}
+            </div>
+            of {steps}
+          </div>
+        {/if}
       </div>
     </div>
   </div>
@@ -70,6 +89,9 @@
   .steps > :global(*) > :global(*) {
     display: none;
   }
+  .steps.showAll > :global(*) > :global(*) {
+    display: block;
+  }
   .steps.active1 > :global(*) > :global(*:nth-child(1)) {
     display: block;
   }
@@ -93,5 +115,28 @@
   }
   .steps.active8 > :global(*) > :global(*:nth-child(8)) {
     display: block;
+  }
+
+  .step-info {
+    display: flex;
+    gap: 4px;
+    justify-content: end;
+    align-items: end;
+    margin-left: auto;
+  }
+  .step-number {
+    width: 1.5em;
+    height: 1.5em;
+    background-color: #913202;
+    color: white;
+    font-weight: bold;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+  }
+  .player {
+    display: flex;
+    align-items: center;
+    gap: 8px;
   }
 </style>

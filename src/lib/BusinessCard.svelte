@@ -6,7 +6,7 @@
   import { HighlightAuto } from "svelte-highlight";
   export let aspect = "L";
   export let style: string = "";
-  export let outline = true;
+  import { outlineMode } from "../settings";
   let mainEl: HTMLDivElement;
   let code: string = "";
 
@@ -29,20 +29,21 @@
   <div class="main-container">
     <main
       bind:this={mainEl}
-      class:highlight={outline}
+      class:highlight={$outlineMode}
       class:landscape={aspect == "L"}
       class:potrait={aspect != "L"}
       {style}
     >
       <slot />
     </main>
-    <button on:click={() => (outline = !outline)}>
-      {#if !outline}
+    <button on:click={() => ($outlineMode = !$outlineMode)}>
+      {#if !$outlineMode}
         Outline divs
       {:else}
         Remove outlines
       {/if}
     </button>
+    <slot name="instructions" />
   </div>
   <div>
     {#if !code}<button on:click={showCode}>Show Code</button>{/if}
