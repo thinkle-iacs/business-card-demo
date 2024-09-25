@@ -10,22 +10,37 @@
   <img slot="target" style:width="3.5in" src={img} />
   <div slot="steps">
     <div>
-      <BusinessCard style="font-family: sans-serif;background-color:#EBD704">
+      <BusinessCard
+        css={`
+          main {
+            font-family: sans-serif;
+            background-color: #EBD704;
+          }
+          .title {
+            font-size: 16pt;
+            font-weight: bold;
+            font-family: cursive;
+          }
+          .description {
+            font-size: 12pt;
+            text-transform: uppercase;
+          }
+          .contact-info {
+            font-size: 8pt;
+          }
+        `}
+      >
         <div>
           CAB<br />IMG
         </div>
         <div>
-          <div style="font-size: 16pt;font-weight:bold;font-family:cursive;">
-            Sammy Kaur Cab Service
-          </div>
-          <div style="font-size: 12pt; text-transform: uppercase;">
-            Atlanta Metropolitan Area
-          </div>
+          <div class="title">Sammy Kaur Cab Service</div>
+          <div class="description">Atlanta Metropolitan Area</div>
         </div>
         <div>
           <hr />
         </div>
-        <div style="font-size: 8pt;">
+        <div class="contact-info">
           <div>+(311) 555-0199</div>
           <div>samkaurcabs.site.com</div>
         </div>
@@ -50,23 +65,43 @@
     </div>
     <div>
       <BusinessCard
-        style="display:flex;flex-direction:column;align-items:center;justify-content:center;font-family: sans-serif;background-color:#EBD704"
+        css={`
+          main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: sans-serif;
+            background-color: #EBD704;
+          }
+          .title {
+            font-size: 16pt;
+            font-weight: bold;
+            font-family: cursive;
+          }
+          .description {
+            font-size: 10pt;
+            text-transform: uppercase;
+          }
+          .contact-info {
+            font-size: 8pt;
+          }
+          .hr-container {
+            width: 1in;
+          }
+        `}
       >
         <div>
           CAB<br />IMG
         </div>
         <div>
-          <div style="font-size: 16pt;font-weight:bold;font-family:cursive;">
-            Sammy Kaur Cab Service
-          </div>
-          <div style="font-size: 10pt; text-transform: uppercase;">
-            Atlanta Metropolitan Area
-          </div>
+          <div class="title">Sammy Kaur Cab Service</div>
+          <div class="description">Atlanta Metropolitan Area</div>
         </div>
-        <div style="width:1in">
+        <div class="hr-container">
           <hr />
         </div>
-        <div style="font-size: 8pt;">
+        <div class="contact-info">
           <div>+(311) 555-0199</div>
           <div>samkaurcabs.site.com</div>
         </div>
@@ -96,25 +131,51 @@
     </div>
     <div>
       <BusinessCard
-        style="text-align:center;gap: 2pt;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family: sans-serif;background-color:#EBD704"
+        css={`
+          main {
+            text-align: center;
+            gap: 2pt;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: sans-serif;
+            background-color: #EBD704;
+          }
+          .title {
+            font-size: 16pt;
+            font-weight: bold;
+            font-family: cursive;
+          }
+          .description {
+            font-size: 10pt;
+            text-transform: uppercase;
+          }
+          .contact-info {
+            font-size: 8pt;
+          }
+          .hr-container {
+            width: 1in;
+          }
+          .hr-container hr {
+            height: 2pt;
+            border-style: solid;
+            border-radius: 2pt;
+            background-color: black;
+          }
+        `}
       >
         <div>
           CAB<br />IMG
         </div>
         <div>
-          <div style="font-size: 16pt;font-weight:bold;font-family:cursive;">
-            Sammy Kaur Cab Service
-          </div>
-          <div style="font-size: 10pt; text-transform: uppercase;">
-            Atlanta Metropolitan Area
-          </div>
+          <div class="title">Sammy Kaur Cab Service</div>
+          <div class="description">Atlanta Metropolitan Area</div>
         </div>
-        <div style="width:1in">
-          <hr
-            style="height:2pt;border-style:solid;border-radius:2pt;background-color:black;"
-          />
+        <div class="hr-container">
+          <hr />
         </div>
-        <div style="font-size: 8pt;">
+        <div class="contact-info">
           <div>+(311) 555-0199</div>
           <div>samkaurcabs.site.com</div>
         </div>

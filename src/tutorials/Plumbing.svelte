@@ -11,15 +11,31 @@
   <div slot="steps">
     <div class="step">
       <BusinessCard
-        style="font-family: sans-serif;background-color:#161D51;color: white;"
+        css={`
+          main {
+            font-family: sans-serif;
+            background-color: #161d51;
+            color: white;
+          }
+          .title {
+            font-weight: bold;
+            font-size: 13pt;
+          }
+          .contact-info {
+            font-size: 8pt;
+          }
+          .motto {
+            font-weight: bold;
+          }
+        `}
       >
-        <div style="font-weight:bold; font-size: 13pt;">
+        <div class="title">
           <div>Bowriker</div>
           <div>Plumbing</div>
         </div>
-        <div style="font-size: 8pt;">(311) 555-0113</div>
-        <div style="font-size: 8pt;">
-          <div style="font-weight:bold">Leave it to us</div>
+        <div class="contact-info">(311) 555-0113</div>
+        <div class="contact-info">
+          <div class="motto">Leave it to us</div>
           <div>bowrikerplumbing.site.com</div>
         </div>
         <div slot="instructions">
@@ -35,21 +51,38 @@
         </div>
       </BusinessCard>
     </div>
+
     <div class="step">
       <BusinessCard
-        style="display:flex;
-          flex-direction: column;
-          justify-content: end;
-          gap: 8pt;
-          font-family: sans-serif;background-color:#161D51;color: white;"
+        css={`
+          main {
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            gap: 8pt;
+            font-family: sans-serif;
+            background-color: #161d51;
+            color: white;
+          }
+          .title {
+            font-weight: bold;
+            font-size: 13pt;
+          }
+          .contact-info {
+            font-size: 8pt;
+          }
+          .motto {
+            font-weight: bold;
+          }
+        `}
       >
-        <div style="font-weight:bold; font-size: 13pt;">
+        <div class="title">
           <div>Bowriker</div>
           <div>Plumbing</div>
         </div>
-        <div style="font-size: 8pt;">(311) 555-0113</div>
-        <div style="font-size: 8pt;">
-          <div style="font-weight:bold">Leave it to us</div>
+        <div class="contact-info">(311) 555-0113</div>
+        <div class="contact-info">
+          <div class="motto">Leave it to us</div>
           <div>bowrikerplumbing.site.com</div>
         </div>
         <div slot="instructions">
@@ -71,24 +104,41 @@
         </div>
       </BusinessCard>
     </div>
+
     <div class="step">
       <BusinessCard
-        style="padding: 16pt;
-          border-radius: 16pt;
-          box-sizing: border-box;
-          display:flex;
-          flex-direction: column;
-          justify-content: end;
-          gap: 8pt;
-          font-family: sans-serif;background-color:#161D51;color: white;"
+        css={`
+          main {
+            padding: 16pt;
+            border-radius: 16pt;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            gap: 8pt;
+            font-family: sans-serif;
+            background-color: #161d51;
+            color: white;
+          }
+          .title {
+            font-weight: bold;
+            font-size: 13pt;
+          }
+          .contact-info {
+            font-size: 8pt;
+          }
+          .motto {
+            font-weight: bold;
+          }
+        `}
       >
-        <div style="font-weight:bold; font-size: 13pt;">
+        <div class="title">
           <div>Bowriker</div>
           <div>Plumbing</div>
         </div>
-        <div style="font-size: 8pt;">(311) 555-0113</div>
-        <div style="font-size: 8pt;">
-          <div style="font-weight:bold">Leave it to us</div>
+        <div class="contact-info">(311) 555-0113</div>
+        <div class="contact-info">
+          <div class="motto">Leave it to us</div>
           <div>bowrikerplumbing.site.com</div>
         </div>
         <div slot="instructions">
@@ -96,12 +146,13 @@
             <ul>
               <li>
                 Add padding to the entire card to move content away from the
-                edge with
-                <code>padding: 16pt</code> (also add
-                <code>box-sizing: border-box</code>
-                to prevent the card from growing with the padding)
+                edge with <code>padding: 16pt</code> (also add
+                <code>box-sizing: border-box</code> to prevent the card from growing
+                with the padding)
               </li>
-              <li>Round th eedges with <code>border-radius: 16pt</code></li>
+              <li>
+                Round the edges with <code>border-radius: 16pt</code>
+              </li>
             </ul>
           </Instructions>
         </div>
@@ -109,3 +160,4 @@
     </div>
   </div>
 </Tutorial>
+

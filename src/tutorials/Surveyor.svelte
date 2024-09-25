@@ -7,24 +7,40 @@
 
 <Tutorial steps={3}>
   <span slot="title">Corners Example</span>
-  <img slot="target" style:width="3.5in" src={img} />
+  <img slot="target" style="width:3.5in" src={img} />
   <div slot="steps">
     <div>
       <BusinessCard
-        style="font-family: Georgia, serif;background-color:#283423;color:#D9F1C2;"
+        css={`
+          main {
+            font-family: Georgia, serif;
+            background-color: #283423;
+            color: #d9f1c2;
+          }
+          .logo {
+            /* Placeholder styling */
+          }
+          .name-title {
+            font-size: 20pt;
+            font-weight: bold;
+            font-family: Futura, sans-serif;
+          }
+          .description {
+            font-size: 12pt;
+          }
+          .contact-info {
+            font-size: 8pt;
+          }
+        `}
       >
-        <div>
+        <div class="logo">
           CAM<br />ERA
         </div>
         <div>
-          <div
-            style="font-size: 20pt;font-weight:bold;font-family:Futura,sans-serif;"
-          >
-            Fran Vanzant
-          </div>
-          <div style="font-size: 12pt;">Building Surveyor</div>
+          <div class="name-title">Fran Vanzant</div>
+          <div class="description">Building Surveyor</div>
         </div>
-        <div style="font-size: 8pt;">
+        <div class="contact-info">
           <div>(311) 555-0199</div>
           <div>Fran@buildingsurveys.com</div>
         </div>
@@ -33,7 +49,7 @@
             <ul>
               <li>Put in placeholder text for the image</li>
               <li>
-                Break the card into 3 elements
+                Break the card into 3 elements:
                 <ol>
                   <li>Camera image</li>
                   <li>Title/Description</li>
@@ -46,23 +62,43 @@
         </div>
       </BusinessCard>
     </div>
+
     <div>
       <BusinessCard
-        style="display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;padding:8pt;
-        font-family: Georgia, serif;background-color:#283423;color:#D9F1C2;"
+        css={`
+          main {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+            padding: 8pt;
+            font-family: Georgia, serif;
+            background-color: #283423;
+            color: #d9f1c2;
+          }
+          .logo {
+          }
+          .name-title {
+            font-size: 20pt;
+            font-weight: bold;
+            font-family: Futura, sans-serif;
+          }
+          .description {
+            font-size: 12pt;
+          }
+          .contact-info {
+            font-size: 8pt;
+          }
+        `}
       >
-        <div>
+        <div class="logo">
           CAM<br />ERA
         </div>
         <div>
-          <div
-            style="font-size: 20pt;font-weight:bold;font-family:Futura,sans-serif;"
-          >
-            Fran Vanzant
-          </div>
-          <div style="font-size: 12pt;">Building Surveyor</div>
+          <div class="name-title">Fran Vanzant</div>
+          <div class="description">Building Surveyor</div>
         </div>
-        <div style="font-size: 8pt;">
+        <div class="contact-info">
           <div>(311) 555-0199</div>
           <div>Fran@buildingsurveys.com</div>
         </div>
@@ -87,25 +123,50 @@
         </div>
       </BusinessCard>
     </div>
+
     <div>
       <BusinessCard
-        style="border-radius:16pt;display:flex;flex-direction:column;justify-content:space-between;box-sizing:border-box;padding:16pt;
-        font-family: Georgia, serif;background-color:#283423;color:#D9F1C2;"
+        css={`
+          main {
+            border-radius: 16pt;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+            padding: 16pt;
+            font-family: Georgia, serif;
+            background-color: #283423;
+            color: #d9f1c2;
+          }
+          .logo {
+            height: 40pt;
+            align-self: end;
+          }
+          .name-title {
+            font-size: 20pt;
+            font-weight: bold;
+            font-family: Futura, sans-serif;
+          }
+          .description {
+            font-size: 12pt;
+          }
+          .contact-info {
+            height: 40pt;
+            font-size: 8pt;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+          }
+        `}
       >
-        <div style="height:40pt;align-self:end">
+        <div class="logo">
           CAM<br />ERA
         </div>
         <div>
-          <div
-            style="font-size: 20pt;font-weight:bold;font-family:Futura,sans-serif;"
-          >
-            Fran Vanzant
-          </div>
-          <div style="font-size: 12pt;">Building Surveyor</div>
+          <div class="name-title">Fran Vanzant</div>
+          <div class="description">Building Surveyor</div>
         </div>
-        <div
-          style="height:40pt;font-size: 8pt;display:flex;flex-direction:column;justify-content: end;"
-        >
+        <div class="contact-info">
           <div>(311) 555-0199</div>
           <div>Fran@buildingsurveys.com</div>
         </div>
@@ -139,3 +200,4 @@
     </div>
   </div>
 </Tutorial>
+

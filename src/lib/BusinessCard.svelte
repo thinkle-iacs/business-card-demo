@@ -1,38 +1,65 @@
+<script context="module">
+  let count = 0;
+</script>
 <script lang="ts">
   import { onMount } from "svelte";
   import prettify from "html-prettify";
   import github from "svelte-highlight/styles/github";
-  import { html_beautify } from "js-beautify";
+  import { html_beautify, css_beautify } from "js-beautify";
   import { HighlightAuto } from "svelte-highlight";
   export let aspect = "L";
-  export let style: string = "";
+  export let css : string = "";
   import { outlineMode } from "../settings";
-  let mainEl: HTMLDivElement;
-  let code: string = "";
-
+  let htmlCode: string = "";
+  let cssCode : string = "";
+  export let style = '';
+  let myId : string;
   function showCode() {
-    code = mainEl.outerHTML;
-    code = code.replace(/;\s*/g, ";\n\t");
-    code = code.replace('style="', 'style="\n\t');
-    code = code.replace(/class="s-\S*\s*/g, 'class="');
-    code = code.replace("</main>", "\n</main>");
-    code = html_beautify(code);
+    count++;
+    myId = 'business-demo-'+count;
+    if (style) {
+      mainEl.style = style;
+    }
+    htmlCode = mainEl.outerHTML;
+    htmlCode = htmlCode.replace(/;\s*/g, ";\n\t");
+    htmlCode = htmlCode.replace('style="', 'style="\n\t');
+    htmlCode = htmlCode.replace(/class="s-\S*\s*/g, 'class="');
+    htmlCode = htmlCode.replace("</main>", "\n</main>");
+    htmlCode = html_beautify(htmlCode);
+    // Now handle CSS...
+    let styleElement = outerEl.querySelector('style');
+    if (!styleElement) {
+      styleElement = document.createElement('style');
+      outerEl.appendChild(styleElement);
+    }
+    styleElement.innerHTML = `
+    #${myId} { &
+      ${css}
+    }
+    `;
+    cssCode = css_beautify(css);
   }
+  console.log('Got css',css)
+
+
   onMount(() => showCode());
+  let mainEl : HTMLElement;
+  let outerEl : HTMLElement;
 </script>
 
 <svelte:head>
-  {@html github}
+  {@html github}   
 </svelte:head>
 
-<div class="two-column">
-  <div class="main-container">
-    <main
+<div class="two-column" bind:this={outerEl}>
+  <div class="main-container" 
+    id={myId}
+  >
+    <main            
       bind:this={mainEl}
       class:highlight={$outlineMode}
       class:landscape={aspect == "L"}
       class:potrait={aspect != "L"}
-      {style}
     >
       <slot />
     </main>
@@ -45,19 +72,25 @@
     </button>
     <slot name="instructions" />
   </div>
-  <div>
-    {#if !code}<button on:click={showCode}>Show Code</button>{/if}
+  <div class="code-box">
+    {#if !htmlCode}<button on:click={showCode}>Show Code</button>{/if}
     <div class="code">
-      <HighlightAuto {code} />
+      <h3>HTML</h3>
+      <HighlightAuto code={htmlCode} />
+      <h3>CSS</h3>
+      <HighlightAuto code={cssCode} />
     </div>
   </div>
 </div>
 
 <style>
+  .code-box {
+    max-width: 50%;
+  }
   .two-column {
     display: flex;
     justify-content: center;
-    gap: 8px;
+    gap: 8px;    
   }
   .code {
     text-align: left;

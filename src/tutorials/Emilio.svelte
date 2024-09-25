@@ -10,12 +10,19 @@
   <img slot="target" style:width="3.5in" src={img} />
   <span slot="steps">
     <div>
-      <BusinessCard style="display:flex;">
-        <div>
+      <BusinessCard
+        css={`
+          main {
+            display: flex;
+            background-color: #fdc20b;
+          }         
+        `}
+      >
+        <div class="left">
           <div>Emilio</div>
           <div>Carter</div>
         </div>
-        <div>
+        <div class="right">
           <div>Electrician</div>
           <div>311-555-0146</div>
           <div>emilio@electrian.site.com</div>
@@ -30,18 +37,23 @@
         </div>
       </BusinessCard>
     </div>
+
     <div>
       <BusinessCard
-        style="display:flex;
-        justify-content: center;
-        align-items: center;
-      "
+        css={`
+          main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fdc20b;
+          }
+        `}
       >
-        <div>
+        <div class="left">
           <div>Emilio</div>
           <div>Carter</div>
         </div>
-        <div>
+        <div class="right">
           <div>Electrician</div>
           <div>311-555-0146</div>
           <div>emilio@electrian.site.com</div>
@@ -51,36 +63,52 @@
             Center the items horizontally and vertically.
             <ul>
               <li>
-                <code>justify-content: center;</code>
-                to center the items horizontally
+                <code>justify-content: center;</code> to center the items horizontally
               </li>
-              <li><code>align-items:center</code> to align them vertically.</li>
+              <li>
+                <code>align-items:center</code> to align them vertically.
+              </li>
             </ul>
           </Instructions>
         </div>
       </BusinessCard>
     </div>
+
     <div>
       <BusinessCard
-        style="display:flex;
-        justify-content: center;
-        align-items: center;
-        font-family: sans-serif;
-        gap: 8pt;
-      "
+        css={`
+          main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+            gap: 8pt;
+            background-color: #fdc20b;
+          }
+          .name {
+            text-transform: uppercase;
+            font-size: 26pt;
+            padding-right: 8pt;
+            border-right: 1px solid black;
+          }
+          .contact-info {
+            font-size: 8pt;
+          }
+          .contact-info .role {
+            text-transform: uppercase;
+          }
+          .contact-info .details {
+            margin-top: 8pt;
+          }
+        `}
       >
-        <div
-          style="text-transform: uppercase; font-size: 26pt;
-          padding-right: 8pt;
-          border-right: 1px solid black;
-        "
-        >
+        <div class="name">
           <div>Emilio</div>
           <div>Carter</div>
         </div>
-        <div style="font-size: 8pt">
-          <div style="text-transform: uppercase">Electrician</div>
-          <div style="margin-top: 8pt">
+        <div class="contact-info">
+          <div class="role">Electrician</div>
+          <div class="details">
             <div>311-555-0146</div>
             <div>emilio@electrian.site.com</div>
           </div>
@@ -102,43 +130,64 @@
                 the phone number and email
               </li>
               <li>
-                Use the <code>gap</code> property
-                <code>padding</code> and <code>margin</code> as needed to tweak our
-                spacing
+                Use the <code>gap</code> property, <code>padding</code>, and
+                <code>margin</code> as needed to tweak our spacing
               </li>
             </ul>
           </Instructions>
         </div>
       </BusinessCard>
     </div>
+
     <div>
       <BusinessCard
-        style="display:flex;
-        justify-content: center;
-        align-items: center;
-        font-family: sans-serif;
-        gap: 8pt;
-      "
+        css={`
+          main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+            gap: 8pt;
+            background-color: #fdc20b;
+          }
+          .name {
+            text-transform: uppercase;
+            font-size: 26pt;
+            padding-right: 8pt;
+            border-right: 1px solid black;
+          }
+          .contact-info {
+            font-size: 8pt;
+          }
+          .contact-info .role {
+            text-transform: uppercase;
+          }
+          .contact-info .details {
+            margin-top: 8pt;
+          }
+          .lightning {
+            position: relative;
+          }
+          .lightning-bolt {
+            position: absolute;
+            font-size: 10pt;
+            top: 8pt;
+            left: 5pt;
+            filter: saturate(0);
+          }
+        `}
       >
-        <div
-          style="text-transform: uppercase; font-size: 26pt;
-          padding-right: 8pt;
-          border-right: 1px solid black;
-        "
-        >
+        <div class="name">
           <div>
-            Emili<span style="position:relative;"
-              >o<span
-                style="position:absolute;font-size:10pt;top:8pt;left:5pt;filter:saturate(0)"
-                >⚡</span
-              ></span
+            Emili<span class="lightning"
+              >o<span class="lightning-bolt">⚡</span></span
             >
           </div>
           <div>Carter</div>
         </div>
-        <div style="font-size: 8pt">
-          <div style="text-transform: uppercase">Electrician</div>
-          <div style="margin-top: 8pt">
+        <div class="contact-info">
+          <div class="role">Electrician</div>
+          <div class="details">
             <div>311-555-0146</div>
             <div>emilio@electrian.site.com</div>
           </div>
@@ -156,7 +205,7 @@
                 the inner span
               </li>
               <li>
-                Make the lightning bold <code>position: absolute</code> so we
+                Make the lightning bolt <code>position: absolute</code> so we
                 can position it with <code>top:</code> and <code>left:</code>
               </li>
               <li>Adjust positioning</li>
@@ -172,3 +221,4 @@
     </div>
   </span>
 </Tutorial>
+
